@@ -86,14 +86,17 @@
             </div>
             <div class="feature reveal">
                 <div class="feature-tag">NEW</div>
+                <img src="assets/inspiration.svg" alt="Доска вдохновения" class="icon">
                 <h3>Доска вдохновения</h3>
                 <p>Собирайте идеи оформления, палитры и референсы в одном месте.</p>
             </div>
             <div class="feature reveal">
+                <img src="assets/schedule.svg" alt="График подготовки" class="icon">
                 <h3>График подготовки</h3>
                 <p>Календарь задач на 3–12 месяцев с автоматической разбивкой.</p>
             </div>
             <div class="feature reveal">
+                <img src="assets/team.svg" alt="Команда и подрядчики" class="icon">
                 <h3>Команда и подрядчики</h3>
                 <p>Контакты ведущего, фотографа, флориста и подрядчиков — всё под рукой.</p>
             </div>
@@ -267,11 +270,12 @@
         <div class="cta-content reveal">
             <h2>Готовы начать планирование?</h2>
             <p>Оставьте заявку — мы покажем, как сервис работает именно под ваш стиль свадьбы.</p>
-            <form class="cta-form">
-                <input type="text" placeholder="Ваше имя">
-                <input type="email" placeholder="Email">
+            <form class="cta-form js-formspree" action="https://formspree.io/f/mgoyvppg" method="POST">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="email" name="email" placeholder="Email" required>
                 <button type="submit" class="cta-button">Получить демо</button>
             </form>
+            <div class="form-status" role="status" aria-live="polite"></div>
             <span class="cta-note">Ответим в течение 24 часов</span>
         </div>
     </section>
@@ -297,10 +301,11 @@
             <div>
                 <h5>Получать новости</h5>
                 <p>Еженедельные идеи, советы и подборки.</p>
-                <div class="footer-form">
-                    <input type="email" placeholder="Email">
-                    <button class="ghost-button" type="button">Подписаться</button>
-                </div>
+                <form class="footer-form js-formspree" action="https://formspree.io/f/mgoyvppg" method="POST">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <button class="ghost-button" type="submit">Подписаться</button>
+                </form>
+                <div class="form-status" role="status" aria-live="polite"></div>
             </div>
         </div>
         <div class="footer-bottom">
@@ -320,6 +325,37 @@
         }, { threshold: 0.18 });
 
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+        
+        document.querySelectorAll('.js-formspree').forEach((form) => {
+            const status = form.nextElementSibling;
+
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                if (!(status instanceof HTMLElement)) return;
+                status.textContent = 'Отправляем...';
+                status.classList.remove('is-error', 'is-success');
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        status.textContent = 'Спасибо! Заявка отправлена. Мы свяжемся с вами в ближайшее время.';
+                        status.classList.add('is-success');
+                        form.reset();
+                    } else {
+                        status.textContent = 'Не удалось отправить. Попробуйте ещё раз.';
+                        status.classList.add('is-error');
+                    }
+                } catch (error) {
+                    status.textContent = 'Ошибка сети. Проверьте подключение и попробуйте снова.';
+                    status.classList.add('is-error');
+                }
+            });
+        });
     </script>
 </body>
 </html>

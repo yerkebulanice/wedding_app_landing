@@ -17,6 +17,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Space Grotesk', system-ui, sans-serif;
     color: var(--ink);
@@ -190,6 +195,7 @@ section {
     color: #fff;
     font-weight: 600;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .ghost-button:hover {
@@ -226,9 +232,11 @@ section {
     gap: 24px;
     background: var(--card);
     border-radius: var(--radius);
-    margin: -60px 6vw 0;
+    margin: -30px 6vw 0;
     padding: 30px 40px;
     box-shadow: var(--shadow);
+    position: relative;
+    z-index: 2;
 }
 
 .stat-number {
@@ -277,6 +285,7 @@ section {
     width: 60px;
     height: 60px;
     margin-bottom: 16px;
+    color: var(--accent-2);
 }
 
 .feature-tag {
@@ -526,6 +535,20 @@ section {
     opacity: 0.85;
 }
 
+.form-status {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.form-status.is-success {
+    color: #e9f7f0;
+}
+
+.form-status.is-error {
+    color: #ffe3e3;
+}
+
 footer {
     background: #1f1a17;
     color: #f1e8de;
@@ -554,15 +577,38 @@ footer {
     font-size: 0.95rem;
 }
 
+footer .form-status {
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+footer .form-status.is-success {
+    color: #d3f6e5;
+}
+
+footer .form-status.is-error {
+    color: #ffd9d9;
+}
+
 .footer-form {
     display: flex;
     gap: 10px;
     margin-top: 14px;
+    flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .footer-form .ghost-button {
     border-color: rgba(255, 255, 255, 0.4);
     color: #fff;
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.footer-form input {
+    flex: 1 1 180px;
+    min-width: 0;
 }
 
 .footer-bottom {
