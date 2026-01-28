@@ -4,77 +4,322 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Planner – Организуйте свадьбу мечты</title>
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;500;700&family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="hero">
-        <div class="overlay"></div>
+    <header class="hero" id="top">
+        <nav class="topbar">
+            <div class="logo">Wedding Planner</div>
+            <div class="nav-links">
+                <a href="#features">Возможности</a>
+                <a href="#how">Как работает</a>
+                <a href="#packages">Пакеты</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <a class="ghost-button" href="#cta">Запросить демо</a>
+        </nav>
+
         <div class="hero-content">
-            <h1>Планируйте свадьбу мечты</h1>
-            <p>С лёгкостью ведите список дел, гостей и бюджет, чтобы сосредоточиться на самом главном — любви.</p>
-            <a href="#features" class="cta-button">Узнать больше</a>
+            <span class="badge">Планирование без стресса</span>
+            <h1>Свадьба мечты — по шагам, с любовью и стилем</h1>
+            <p>Инструменты, которые превращают хаос в ясный план: чек‑листы, гости, бюджет, идеи оформления и тайминг дня. Всё в одном месте.</p>
+            <div class="hero-actions">
+                <a href="#features" class="cta-button">Посмотреть возможности</a>
+                <a href="#packages" class="link-button">Выбрать пакет</a>
+            </div>
+            <div class="hero-highlights">
+                <div class="highlight-card">
+                    <h3>12+ шаблонов</h3>
+                    <p>Сценарии церемоний, тайминги и списки покупок.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>48 часов</h3>
+                    <p>Стартовая настройка проекта и персональный план.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>92% пар</h3>
+                    <p>Отмечают снижение стресса уже в первую неделю.</p>
+                </div>
+            </div>
         </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
     </header>
 
+    <section class="stats reveal">
+        <div class="stat">
+            <span class="stat-number">1 200+</span>
+            <span class="stat-label">проектов в работе</span>
+        </div>
+        <div class="stat">
+            <span class="stat-number">4.9/5</span>
+            <span class="stat-label">средняя оценка</span>
+        </div>
+        <div class="stat">
+            <span class="stat-number">35+</span>
+            <span class="stat-label">партнёров по услугам</span>
+        </div>
+    </section>
+
     <section id="features" class="features">
-        <h2>Возможности приложения</h2>
+        <div class="section-title reveal">
+            <h2>Возможности приложения</h2>
+            <p>Собрали всё, что нужно для подготовки — от бюджета до вдохновения.</p>
+        </div>
         <div class="features-grid">
-            <div class="feature">
+            <div class="feature reveal">
                 <img src="assets/tasks.png" alt="Список задач" class="icon">
                 <h3>Список задач</h3>
-                <p>Создавайте и отмечайте задачи, чтобы ничего не забыть в процессе подготовки.</p>
+                <p>Умный чек‑лист с приоритетами и напоминаниями, чтобы ничего не забыть.</p>
             </div>
-            <div class="feature">
+            <div class="feature reveal">
                 <img src="assets/guests.png" alt="Список гостей" class="icon">
                 <h3>Список гостей</h3>
-                <p>Добавляйте и редактируйте гостей, отслеживайте RSVPs и контактную информацию.</p>
+                <p>RSVP, посадка, предпочтения по меню, контакты и семейные группы.</p>
             </div>
-            <div class="feature">
+            <div class="feature reveal">
                 <img src="assets/budget.png" alt="Бюджет" class="icon">
                 <h3>Бюджет</h3>
-                <p>Контролируйте расходы и следите за общими затратами, чтобы остаться в рамках бюджета.</p>
+                <p>Прозрачные категории расходов и прогноз, чтобы не выйти за рамки.</p>
+            </div>
+            <div class="feature reveal">
+                <div class="feature-tag">NEW</div>
+                <h3>Доска вдохновения</h3>
+                <p>Собирайте идеи оформления, палитры и референсы в одном месте.</p>
+            </div>
+            <div class="feature reveal">
+                <h3>График подготовки</h3>
+                <p>Календарь задач на 3–12 месяцев с автоматической разбивкой.</p>
+            </div>
+            <div class="feature reveal">
+                <h3>Команда и подрядчики</h3>
+                <p>Контакты ведущего, фотографа, флориста и подрядчиков — всё под рукой.</p>
             </div>
         </div>
     </section>
 
-    <section class="about">
-        <div class="container">
-            <h2>О приложении</h2>
-            <p>Наша мобильная платформа помогает будущим супругам организовать идеальную свадьбу. Мы предлагаем удобные инструменты для планирования: чек‑лист задач, управление списком гостей, калькулятор бюджета и многое другое. В статьях экспертов подчёркивается, что успешный сайт свадебного профессионала должен впечатлять посетителя в первом же **герой‑секции** и четко представлять услугу【703163254386764†L100-L116】. Мы учли эти рекомендации, чтобы создать понятный и красивый сервис.</p>
-            <p>Приложение разработано на Flutter с кросс‑платформенной поддержкой iOS и Android, а серверная часть построена на FastAPI с использованием PostgreSQL. Это обеспечивает безопасность, скорость и удобство использования.</p>
+    <section class="about" id="how">
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <h2>О приложении</h2>
+                <p>Wedding Planner помогает будущим супругам организовать идеальную свадьбу без хаоса и бесконечных таблиц. Платформа объединяет планирование задач, работу с гостями, управление бюджетом и подбор подрядчиков.</p>
+                <p>Вы выбираете стиль, дату и масштаб праздника, а сервис подсказывает этапы, сроки и сценарии. Это экономит время, снижает стресс и даёт уверенность в каждом шаге.</p>
+                <div class="about-pills">
+                    <span>iOS • Android</span>
+                    <span>Панель организатора</span>
+                    <span>Экспорт PDF</span>
+                </div>
+            </div>
+            <div class="about-card reveal">
+                <h3>Что вы получаете</h3>
+                <ul>
+                    <li>Свадебный тайминг и чек‑лист по месяцам</li>
+                    <li>Список гостей с фильтрами и тегами</li>
+                    <li>Подбор подрядчиков под ваш стиль</li>
+                    <li>Персональный бюджет и отчёты</li>
+                </ul>
+                <a href="#packages" class="cta-button">Выбрать пакет</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline">
+        <div class="section-title reveal">
+            <h2>График подготовки</h2>
+            <p>Готовимся уверенно: от первой идеи до финальных штрихов.</p>
+        </div>
+        <div class="timeline-grid">
+            <div class="timeline-item reveal">
+                <span>12–9 месяцев</span>
+                <h4>Концепция и бюджет</h4>
+                <p>Определяем стиль, локацию и масштаб. Фиксируем рамки бюджета.</p>
+            </div>
+            <div class="timeline-item reveal">
+                <span>8–5 месяцев</span>
+                <h4>Подрядчики и контент</h4>
+                <p>Бронируем фотографа, ведущего и выбираем площадку.</p>
+            </div>
+            <div class="timeline-item reveal">
+                <span>4–2 месяца</span>
+                <h4>Гости и логистика</h4>
+                <p>Готовим список гостей, логистику и сценарии дня.</p>
+            </div>
+            <div class="timeline-item reveal">
+                <span>Последний месяц</span>
+                <h4>Финальные детали</h4>
+                <p>Согласуем тайминг, декор, финальные оплаты и репетиции.</p>
+            </div>
         </div>
     </section>
 
     <section class="how-it-works">
         <div class="container">
-            <h2>Как это работает</h2>
+            <div class="section-title reveal">
+                <h2>Как это работает</h2>
+                <p>Три простых шага, чтобы перейти от идеи к спокойной подготовке.</p>
+            </div>
             <div class="steps">
-                <div class="step">
+                <div class="step reveal">
                     <span class="step-number">1</span>
                     <h4>Регистрация</h4>
-                    <p>Создайте аккаунт и начните планирование. Пароли хранятся в зашифрованном виде.</p>
+                    <p>Создайте аккаунт, выберите дату и стиль торжества.</p>
                 </div>
-                <div class="step">
+                <div class="step reveal">
                     <span class="step-number">2</span>
                     <h4>Планирование</h4>
-                    <p>Добавляйте задачи, приглашайте гостей, контролируйте бюджет и получайте напоминания.</p>
+                    <p>Добавляйте задачи, гостей, подрядчиков и отслеживайте бюджет.</p>
                 </div>
-                <div class="step">
+                <div class="step reveal">
                     <span class="step-number">3</span>
-                    <h4>Наслаждайтесь</h4>
-                    <p>В день свадьбы всё под контролем – вы можете расслабиться и наслаждаться торжеством.</p>
+                    <h4>Праздник</h4>
+                    <p>В день свадьбы всё под контролем — вы наслаждаетесь моментом.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <section class="testimonials">
+        <div class="section-title reveal">
+            <h2>Отзывы пар</h2>
+            <p>Нежные истории от тех, кто уже прошёл путь подготовки.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial reveal">
+                <p>«За две недели мы навели порядок в задачах и перестали спорить о бюджете. Это спасло нас от хаоса.»</p>
+                <span>Айдана и Нурсултан</span>
+            </div>
+            <div class="testimonial reveal">
+                <p>«Очень понравилась доска вдохновения: наконец‑то все идеи в одном месте, без сотни чатов.»</p>
+                <span>Динара и Ерлан</span>
+            </div>
+            <div class="testimonial reveal">
+                <p>«Сервис помог найти подрядчиков и держать сроки. Рекомендую всем, кто хочет свадьбу без стресса.»</p>
+                <span>Жанар и Тимур</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="packages" id="packages">
+        <div class="section-title reveal">
+            <h2>Пакеты сопровождения</h2>
+            <p>Выберите формат подготовки, который подходит вашему стилю.</p>
+        </div>
+        <div class="package-grid">
+            <div class="package-card reveal">
+                <h3>Start</h3>
+                <p class="price">29 000 ₸</p>
+                <ul>
+                    <li>Чек‑лист подготовки</li>
+                    <li>Шаблоны бюджета</li>
+                    <li>Список гостей</li>
+                </ul>
+                <a class="cta-button" href="#cta">Начать</a>
+            </div>
+            <div class="package-card featured reveal">
+                <span class="chip">Популярный выбор</span>
+                <h3>Plus</h3>
+                <p class="price">79 000 ₸</p>
+                <ul>
+                    <li>Персональный тайминг</li>
+                    <li>Подбор подрядчиков</li>
+                    <li>Доска вдохновения</li>
+                    <li>Онлайн‑консультация</li>
+                </ul>
+                <a class="cta-button" href="#cta">Выбрать Plus</a>
+            </div>
+            <div class="package-card reveal">
+                <h3>Premium</h3>
+                <p class="price">159 000 ₸</p>
+                <ul>
+                    <li>Полное сопровождение</li>
+                    <li>Контроль бюджета</li>
+                    <li>Координация дня</li>
+                </ul>
+                <a class="cta-button" href="#cta">Запросить</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="section-title reveal">
+            <h2>Частые вопросы</h2>
+            <p>Ответы на важные вопросы перед стартом.</p>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item reveal">
+                <h4>Нужно ли устанавливать приложение?</h4>
+                <p>Нет, вы можете пользоваться веб‑версией и синхронизировать данные с мобильным приложением.</p>
+            </div>
+            <div class="faq-item reveal">
+                <h4>Какой срок подготовки оптимален?</h4>
+                <p>Мы рекомендуем начинать за 8–12 месяцев, но есть быстрые планы на 3–4 месяца.</p>
+            </div>
+            <div class="faq-item reveal">
+                <h4>Можно ли пригласить организатора?</h4>
+                <p>Да, в пакетах Plus и Premium доступна консультация и персональное сопровождение.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="cta">
+        <div class="cta-content reveal">
+            <h2>Готовы начать планирование?</h2>
+            <p>Оставьте заявку — мы покажем, как сервис работает именно под ваш стиль свадьбы.</p>
+            <form class="cta-form">
+                <input type="text" placeholder="Ваше имя">
+                <input type="email" placeholder="Email">
+                <button type="submit" class="cta-button">Получить демо</button>
+            </form>
+            <span class="cta-note">Ответим в течение 24 часов</span>
+        </div>
+    </section>
+
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Wedding Planner. Все права защищены.</p>
-            <p>Свяжитесь с нами: <a href="mailto:info@weddingplanner.app">info@weddingplanner.app</a></p>
+        <div class="footer-grid">
+            <div>
+                <h4>Wedding Planner</h4>
+                <p>Сервис для создания идеальной свадьбы — от идеи до финального бокала.</p>
+            </div>
+            <div>
+                <h5>Разделы</h5>
+                <a href="#features">Возможности</a>
+                <a href="#packages">Пакеты</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div>
+                <h5>Контакты</h5>
+                <a href="mailto:info@weddingplanner.app">info@weddingplanner.app</a>
+                <span>+7 747 178 9004</span>
+                <span>Алматы • Казахстан</span>
+            </div>
+            <div>
+                <h5>Получать новости</h5>
+                <p>Еженедельные идеи, советы и подборки.</p>
+                <div class="footer-form">
+                    <input type="email" placeholder="Email">
+                    <button class="ghost-button" type="button">Подписаться</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Wedding Planner. Все права защищены.</span>
+            <span>Политика конфиденциальности • Пользовательское соглашение</span>
         </div>
     </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.18 });
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
 </body>
 </html>
