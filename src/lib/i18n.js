@@ -1,0 +1,125 @@
+const STORAGE_KEY = 'shaqyrtu-lang';
+
+export const translations = {
+  kz: {
+    inviteLabel: 'Тойға шақыру',
+    rsvp: 'RSVP',
+    copyLink: 'Copy link',
+    copied: 'Koshirildi',
+    countdownTitle: 'Тойға дейін',
+    countdownSubtitle: 'Біздің күнді бірге күтейік.',
+    days: 'Kún',
+    hours: 'Sağat',
+    minutes: 'Minut',
+    seconds: 'Sekund',
+    detailsTitle: 'Толық мәлімет',
+    detailsSubtitle: 'сіздер үшін арнайы безендірілген кеш.',
+    venueLabel: 'Өтетін орны',
+    dressCode: 'Dress code',
+    contacts: 'Байланыс',
+    scheduleTitle: 'Кеш бағдарламасы',
+    scheduleSubtitle: 'Той кешінің негізгі кезеңдері.',
+    galleryTitle: 'Естелік кадрлар',
+    gallerySubtitle: 'Біздің әсерлі сәттеріміз.',
+    mapTitle: 'Орналасу',
+    mapAddress: 'Мекенжай',
+    mapButton: 'Open in Maps',
+    mapSoon: 'Карта жақында қосылады',
+    rsvpTitle: 'RSVP',
+    rsvpSubtitle: 'Қатысуыңызды растаңыз.',
+    nameLabel: 'Aty-zhoni',
+    attendanceLabel: 'Kelemin / Kelmeymin',
+    attendYes: 'Kelemin',
+    attendNo: 'Kelmeymin',
+    guestsLabel: 'Neshe kisi keledi?',
+    commentLabel: 'Комментарий (міндетті емес)',
+    submit: 'Zhiberu',
+    submitting: 'Жіберілуде...',
+    validationName: 'Aty-zhoni kerek.',
+    validationAttendance: 'Kelemin/kelmeymin tańdańyz.',
+    validationGuests: 'Neshe kisi keledi? 1-10 arasynda болуы керек.',
+    errorGeneric: 'Қате орын алды. Қайта көріңіз.',
+    footerWait: 'Сіздерді асыға күтеміз.',
+    notFoundTitle: 'Шақыру табылмады',
+    notFoundText: 'Invite ID дұрыс емес болуы мүмкін.',
+    errorTitle: 'Қате орын алды',
+    loading: 'Жүктелуде...',
+    successTitle: 'Rahmet!',
+    successText: 'Zhауabyŋyz qabyldandy.',
+    back: 'Artqa',
+    homeTitle: 'Shaqyrtu',
+    homeSubtitle: 'Приглашение на свадьбу в одном аккуратном шаблоне.',
+    open: 'Ashu',
+    dateLabel: 'Күн',
+    timeLabel: 'Уақыты',
+    timezoneLabel: 'Уақыт белдеуі'
+  },
+  ru: {
+    inviteLabel: 'Свадебное приглашение',
+    rsvp: 'RSVP',
+    copyLink: 'Скопировать ссылку',
+    copied: 'Скопировано',
+    countdownTitle: 'До свадьбы',
+    countdownSubtitle: 'Давайте вместе ждать этот день.',
+    days: 'Дней',
+    hours: 'Часов',
+    minutes: 'Минут',
+    seconds: 'Секунд',
+    detailsTitle: 'Подробности',
+    detailsSubtitle: 'уютный вечер, созданный специально для вас.',
+    venueLabel: 'Место проведения',
+    dressCode: 'Dress code',
+    contacts: 'Контакты',
+    scheduleTitle: 'Программа вечера',
+    scheduleSubtitle: 'Основные моменты праздничного вечера.',
+    galleryTitle: 'Фотогалерея',
+    gallerySubtitle: 'Наши теплые моменты.',
+    mapTitle: 'Локация',
+    mapAddress: 'Адрес',
+    mapButton: 'Открыть в картах',
+    mapSoon: 'Карта скоро будет доступна',
+    rsvpTitle: 'RSVP',
+    rsvpSubtitle: 'Подтвердите ваше участие.',
+    nameLabel: 'Имя и фамилия',
+    attendanceLabel: 'Приду / Не приду',
+    attendYes: 'Приду',
+    attendNo: 'Не приду',
+    guestsLabel: 'Сколько гостей придёт?',
+    commentLabel: 'Комментарий (необязательно)',
+    submit: 'Отправить',
+    submitting: 'Отправка...',
+    validationName: 'Укажите имя.',
+    validationAttendance: 'Выберите вариант участия.',
+    validationGuests: 'Количество гостей должно быть 1-10.',
+    errorGeneric: 'Произошла ошибка. Попробуйте еще раз.',
+    footerWait: 'Ждём вас с нетерпением.',
+    notFoundTitle: 'Приглашение не найдено',
+    notFoundText: 'Возможно, Invite ID неверный.',
+    errorTitle: 'Произошла ошибка',
+    loading: 'Загрузка...',
+    successTitle: 'Спасибо!',
+    successText: 'Ваш ответ принят.',
+    back: 'Назад',
+    homeTitle: 'Shaqyrtu',
+    homeSubtitle: 'Приглашение на свадьбу в одном аккуратном шаблоне.',
+    open: 'Открыть',
+    dateLabel: 'Дата',
+    timeLabel: 'Время',
+    timezoneLabel: 'Часовой пояс'
+  }
+};
+
+export function getStoredLanguage() {
+  if (typeof window === 'undefined') return 'kz';
+  const stored = window.localStorage.getItem(STORAGE_KEY);
+  return stored === 'ru' ? 'ru' : 'kz';
+}
+
+export function setStoredLanguage(lang) {
+  if (typeof window === 'undefined') return;
+  window.localStorage.setItem(STORAGE_KEY, lang);
+}
+
+export function getTranslator(lang) {
+  return (key) => translations[lang]?.[key] || key;
+}
