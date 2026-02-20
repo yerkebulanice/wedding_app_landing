@@ -1,0 +1,22 @@
+import { useEffect } from 'react';
+
+export function useScrollReveal() {
+  useEffect(() => {
+    const nodes = document.querySelectorAll('[data-reveal]');
+    if (!nodes.length) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.16, rootMargin: '0px 0px -30px 0px' }
+    );
+
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
+}

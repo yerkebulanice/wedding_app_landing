@@ -1,61 +1,61 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { getStoredLanguage, getTranslator, setStoredLanguage } from '../lib/i18n.js';
+import { useEffect, useRef, useState } from 'react';
+import Header from '../landing/components/Header.jsx';
+import Hero from '../landing/components/Hero.jsx';
+import StoreReveal from '../landing/components/StoreReveal.jsx';
+import Testimonials from '../landing/components/Testimonials.jsx';
+import StoreLinks from '../landing/components/StoreLinks.jsx';
+import Support from '../landing/components/Support.jsx';
+import Footer from '../landing/components/Footer.jsx';
+import { useLang } from '../landing/useLang.js';
+import { useReveal } from '../landing/useReveal.js';
 
 export default function HomePage() {
-  const [inviteId, setInviteId] = useState('');
-  const [lang, setLang] = useState('kz');
-  const navigate = useNavigate();
-  const t = getTranslator(lang);
+  const { lang, t, switchLang } = useLang();
+  const [storeOpen, setStoreOpen] = useState(false);
+  const revealRef = useRef(null);
+
+  useReveal();
 
   useEffect(() => {
-    setLang(getStoredLanguage());
-  }, []);
+    document.documentElement.lang = lang === 'kz' ? 'kk' : 'ru';
+    document.title = t.seoTitle;
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!inviteId.trim()) return;
-    navigate(`/i/${inviteId.trim()}`);
-  };
+    const setMeta = (name, content, isProperty = false) => {
+      const selector = isProperty ? `meta[property="${name}"]` : `meta[name="${name}"]`;
+      let node = document.head.querySelector(selector);
+      if (!node) {
+        node = document.createElement('meta');
+        node.setAttribute(isProperty ? 'property' : 'name', name);
+        document.head.appendChild(node);
+      }
+      node.setAttribute('content', content);
+    };
 
-  const handleLanguage = (value) => {
-    setLang(value);
-    setStoredLanguage(value);
+    setMeta('description', t.seoDescription);
+    setMeta('og:title', t.seoTitle, true);
+    setMeta('og:description', t.seoDescription, true);
+    setMeta('twitter:title', t.seoTitle);
+    setMeta('twitter:description', t.seoDescription);
+  }, [lang, t.seoDescription, t.seoTitle]);
+
+  const handleHeroCta = () => {
+    setStoreOpen(true);
+    requestAnimationFrame(() => {
+      revealRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center section-pad">
-      <div className="card p-10 max-w-lg w-full text-center space-y-6">
-        <div className="flex justify-center gap-2 text-sm">
-          <button
-            type="button"
-            onClick={() => handleLanguage('kz')}
-            className={`px-3 py-1 rounded-full border ${lang === 'kz' ? 'bg-rose-100 border-rose-200' : 'border-slate-200'}`}
-          >
-            KZ
-          </button>
-          <button
-            type="button"
-            onClick={() => handleLanguage('ru')}
-            className={`px-3 py-1 rounded-full border ${lang === 'ru' ? 'bg-rose-100 border-rose-200' : 'border-slate-200'}`}
-          >
-            RU
-          </button>
-        </div>
-        <div className="space-y-3">
-          <h1 className="font-display text-4xl">{t('homeTitle')}</h1>
-          <p className="text-slate-600">{t('homeSubtitle')}</p>
-        </div>
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          <input
-            className="input w-full"
-            placeholder="Invite ID"
-            value={inviteId}
-            onChange={(e) => setInviteId(e.target.value)}
-          />
-          <button className="btn-primary w-full" type="submit">{t('open')}</button>
-        </form>
-      </div>
-    </main>
+    <div className="min-h-screen bg-milk">
+      <Header siteName={t.siteName} lang={lang} onLangChange={switchLang} />
+      <main>
+        <Hero t={t} onCtaClick={handleHeroCta} />
+        <StoreReveal t={t} open={storeOpen} innerRef={revealRef} />
+        <Testimonials t={t} />
+        <StoreLinks t={t} />
+        <Support t={t} />
+      </main>
+      <Footer t={t} siteName={t.siteName} />
+    </div>
   );
 }

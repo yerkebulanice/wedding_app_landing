@@ -50,7 +50,7 @@ export default function RsvpSection({ inviteId, t }) {
           comment: form.comment.trim() || undefined
         })
       });
-      navigate(`/i/${inviteId}/rsvp/success`);
+      navigate(`/i/${inviteId}/guests/success`);
     } catch (err) {
       setError(err?.message || t('errorGeneric'));
     } finally {
@@ -59,7 +59,7 @@ export default function RsvpSection({ inviteId, t }) {
   };
 
   return (
-    <section className="section-pad bg-soft" id="rsvp">
+    <section className="section-pad bg-soft" id="guest-list">
       <div className="max-w-3xl mx-auto card p-8 md:p-12">
         <div className="section-title">
           <h2 className="font-display text-3xl">{t('rsvpTitle')}</h2>

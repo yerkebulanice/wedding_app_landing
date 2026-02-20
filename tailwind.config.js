@@ -7,15 +7,25 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Playfair Display"', 'serif'],
-        body: ['"Manrope"', 'sans-serif']
+        body: ['Inter', 'system-ui', 'sans-serif']
       },
       colors: {
-        ink: '#1f1a17',
-        soft: '#f7f1ec'
+        milk: '#fcfbf9',
+        brand: {
+          50: '#f5edff',
+          100: '#ead9ff',
+          200: '#d9bcff',
+          300: '#c194ff',
+          400: '#a96cff',
+          500: '#8f48f2',
+          600: '#7e36de'
+        }
+      },
+      borderRadius: {
+        xl2: '1rem'
       },
       boxShadow: {
-        soft: '0 18px 50px rgba(15, 13, 12, 0.12)'
+        soft: '0 14px 30px rgba(15, 23, 42, 0.1)'
       }
     }
   },

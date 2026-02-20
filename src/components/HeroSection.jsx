@@ -36,7 +36,7 @@ export default function HeroSection({ invite, t }) {
             <div className="font-semibold">{formatDate(invite.event.date, invite.event.time)}</div>
             <div className="text-sm text-slate-500">{formatTime(invite.event.time)} {invite.event.timezone || ''}</div>
           </div>
-          <button className="btn-primary" onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}>
+          <button className="btn-primary" onClick={() => document.getElementById('guest-list')?.scrollIntoView({ behavior: 'smooth' })}>
             {t('rsvp')}
           </button>
           <button className="btn-outline" onClick={handleCopy}>
